@@ -1,6 +1,7 @@
 import type { Denops } from "https://deno.land/x/denops_std@v6.0.0/mod.ts";
 import * as buffer from "https://deno.land/x/denops_std@v6.0.0/buffer/mod.ts";
 import * as fn from "https://deno.land/x/denops_std@v6.0.0/function/mod.ts";
+import * as op from "https://deno.land/x/denops_std@v6.0.0/option/mod.ts";
 import { Maze } from "https://deno.land/x/maze_generator@v0.4.0/mod.js";
 
 export function main(denops: Denops): void {
@@ -18,6 +19,9 @@ export function main(denops: Denops): void {
 
       await buffer.replace(denops, bufnr, content.split(/\r?\n/g));
       await buffer.concrete(denops, bufnr);
+
+      await op.bufhidden.setLocal(denops, "wipe");
+      await op.modifiable.setLocal(denops, false);
     },
   };
 }
