@@ -3,10 +3,11 @@ import { Maze } from "https://deno.land/x/maze_generator@v0.4.0/mod.js";
 
 export function main(denops: Denops): void {
   denops.dispatcher = {
-    maze() {
+    async maze() {
       const maze = new Maze({}).generate();
       const content = maze.getString();
-      console.log(content);
+
+      await denops.call("setline", 1, content.split(/\r?\n/g));
     },
   };
 }
