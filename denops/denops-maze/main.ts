@@ -1,14 +1,14 @@
-import type { Denops } from "https://deno.land/x/denops_std@v6.0.0/mod.ts";
+import type { Entrypoint } from "https://deno.land/x/denops_std@v6.5.0/mod.ts";
 import {
   batch,
   collect,
-} from "https://deno.land/x/denops_std@v6.0.0/batch/mod.ts";
-import * as buffer from "https://deno.land/x/denops_std@v6.0.0/buffer/mod.ts";
-import * as fn from "https://deno.land/x/denops_std@v6.0.0/function/mod.ts";
-import * as op from "https://deno.land/x/denops_std@v6.0.0/option/mod.ts";
+} from "https://deno.land/x/denops_std@v6.5.0/batch/mod.ts";
+import * as buffer from "https://deno.land/x/denops_std@v6.5.0/buffer/mod.ts";
+import * as fn from "https://deno.land/x/denops_std@v6.5.0/function/mod.ts";
+import * as op from "https://deno.land/x/denops_std@v6.5.0/option/mod.ts";
 import { Maze } from "https://deno.land/x/maze_generator@v0.4.0/mod.js";
 
-export function main(denops: Denops): void {
+export const main: Entrypoint = (denops) => {
   denops.dispatcher = {
     async maze() {
       const { bufnr, winnr } = await buffer.open(denops, "maze://");
@@ -31,4 +31,4 @@ export function main(denops: Denops): void {
       });
     },
   };
-}
+};
