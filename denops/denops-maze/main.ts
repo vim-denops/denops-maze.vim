@@ -3,7 +3,7 @@ import { batch, collect } from "@denops/std/batch";
 import * as buffer from "@denops/std/buffer";
 import * as fn from "@denops/std/function";
 import * as op from "@denops/std/option";
-import { Maze } from "@thewizardbear/maze_generator";
+import { Maze } from "maze_generator";
 
 export const main: Entrypoint = (denops) => {
   denops.dispatcher = {

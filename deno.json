@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@denops/std": "jsr:@denops/std@^8.0.0",
-    "@thewizardbear/maze_generator": "npm:@thewizardbear/maze_generator"
-  }
-}
